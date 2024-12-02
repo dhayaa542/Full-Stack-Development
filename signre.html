@@ -1,0 +1,82 @@
+<?php
+$url = "Sports web.html";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN SUCCESSFUL</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://t3.ftcdn.net/jpg/05/12/01/76/360_F_512017699_JT8ufUFIfGF2jBzLbOpAcTsmR1oATkPf.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .login-form {
+            background: rgba(255, 255, 255, 0.1); 
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        .login-logo {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+        .login-form h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .login-form p {
+            color: white;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="login-container">
+            <div class="login-form">
+                
+                <h2>SIGNIN SUCCESSFUL</h2>
+                <p>Redirecting in <span id="countdown">3</span> seconds...</p>
+            </div>
+        </div>
+    </center>
+
+    
+    <script type="text/javascript">
+        var countdown = 3; 
+        var interval = setInterval(function() {
+            countdown--;
+            document.getElementById('countdown').textContent = countdown;
+
+            if (countdown === 0) 
+            {
+                clearInterval(interval); 
+                window.location.href = "<?php echo $url; ?>"; 
+            }
+        }, 1000); 
+    </script>
+</body>
+</html>

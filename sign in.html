@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <style>
+      body 
+      {
+        background-color: ;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif;
+        color: #fff;
+      }
+      h2 
+      {
+        color: #fff;
+        font-size: 2rem;
+      }
+      .form 
+      {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      .form label 
+      {
+        display: block;
+        margin: 10px 0 5px;
+      }
+      .form input
+      {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .form button 
+      {
+        width: 100%;
+        padding: 10px;
+        background: linear-gradient(#00893a, #abffb6);
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .form button:hover 
+      {
+        background: linear-gradient(#00682a, #82d39a);
+      }
+    </style>
+  </head>
+  <body>
+    <br><br><br><br>
+    <center><h2>SIGN IN</h2></center>
+    <div class="form">
+      <form action="aboutus.html">
+        <label for="username">Name:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+        <label for="MobileNumber">Mobile Number:</label>
+        <input type="tel" id="MobileNumber" name="MobileNumber" placeholder="Enter your phone number" required>
+
+        <label for="Mail">E-Mail:</label>
+        <input type="email" id="Mail" name="Mail" placeholder="Enter your email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <label for="cpassword">Confirm Password:</label>
+        <input type="password" id="cpassword" name="cpassword" placeholder="Re-enter your password" required>
+
+        <button type="submit" name="submit">Sign Up</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porter Services</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to <abbr title="Porter Services">Porter</abbr> Services</h1>
+        <p>Your reliable partner for <strong>transportation</strong> and <em>logistics</em>.</p>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <ul>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>We provide <mark>on-demand</mark> porter services for businesses and individuals.</p>
+            <ol>
+                <li>Same-day delivery</li>
+                <li>Heavy load transportation</li>
+                <li>Long-distance moving</li>
+            </ol>
+            <p>Our popular categories include:</p>
+            <ul>
+                <li>Household shifting</li>
+                <li>Office relocation</li>
+                <li>Parcel delivery</li>
+            </ul>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <iframe src="gallery.html" style="width: 100%; height: 300px;" frameborder="0">
+                Your browser does not support iframes.
+            </iframe>
+
+            <!-- Image Map -->
+            <h3>Explore Our Fleet</h3>
+            <figure>
+                <img src="fleet.jpg" alt="Fleet of vehicles" usemap="#fleet-map" style="width: 100%;">
+                <figcaption>Click on a vehicle to learn more about it.</figcaption>
+                <map name="fleet-map">
+                    <area shape="rect" coords="10,10,100,100" href="#van" alt="Van">
+                    <area shape="circle" coords="200,150,50" href="#truck" alt="Truck">
+                    <area shape="poly" coords="300,200,400,300,350,250" href="#bike" alt="Bike">
+                </map>
+            </figure>
+        </section>
+
+        <!-- Pricing Table -->
+        <section id="pricing">
+            <h2>Pricing Table</h2>
+            <table border="1" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Delivery</td>
+                        <td>$50</td>
+                        <td>Same-day delivery</td>
+                    </tr>
+                    <tr>
+                        <td>$30</td>
+                        <td>Next-day delivery</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Special discounts for bulk orders!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Contact Form -->
+    <aside id="contact">
+        <h2>Contact Us</h2>
+        <form action="submit_form.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="date">Preferred Date:</label>
+            <input type="date" id="date" name="date"><br><br>
+
+            <label for="time">Preferred Time:</label>
+            <input type="time" id="time" name="time"><br><br>
+
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments"></textarea><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </aside>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Porter Services. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
