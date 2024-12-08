@@ -53,12 +53,31 @@
         background: linear-gradient(#00682a, #82d39a);
       }
     </style>
+    <script>
+      function submitForm(event)
+      {
+      event.preventDefault(); 
+      const password = document.getElementById('password').value;
+      const cpassword = document.getElementById('cpassword').value;
+
+      if (password !== cpassword) 
+      {
+        alert("Passwords do not match!");
+        return false;
+      }
+      console.log("SIGN IN HAS BEEN DONE SUCCESSFULLY");
+      alert("SIGN IN SUCCESSFUL!");
+      
+      window.location.href = "aboutus.html";
+      return true;
+    }
+    </script>
   </head>
   <body>
     <br><br><br><br>
     <center><h2>SIGN IN</h2></center>
     <div class="form">
-      <form action="aboutus.html">
+      <form action="aboutus.html" onsubmit="return submitForm(event)">
         <label for="username">Name:</label>
         <input type="text" id="username" name="username" placeholder="Enter your username" required>
 
