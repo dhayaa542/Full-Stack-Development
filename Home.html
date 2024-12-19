@@ -55,15 +55,6 @@
             font-weight: bolder;
             font-size: large;
         }
-        .fifth
-        {
-            margin-left: 100px;
-            align-items: center;
-            justify-content: space-between;
-            size: 20px;
-            max-width: 100%;
-            height: auto;
-        }
         .sixth
         {
             margin-left: 100px;
@@ -155,7 +146,118 @@
             overflow-y: hidden;
             white-space: nowrap;
         }
+        .carousel 
+        {
+            height: 700px;
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .carousel-track 
+        {
+            display: flex;
+            animation: slide 10s infinite;
+        }
+        .carousel-item 
+        {
+            min-width: 100%;
+            height: 700px;
+            background-size: cover;
+            background-position: center;
+        }
+        .carousel-item:nth-child(1) 
+        {
+            background-image: url('https://www.sendcloud.com/wp-content/uploads/2023/03/Sustainably-delivery-2-1024x700.jpg');
+        }
+
+        .carousel-item:nth-child(2) 
+        {
+            background-image: url('https://lohum.com/wp-content/uploads/2023/11/Screenshot_1.png');
+        }
+        
+        .carousel-item:nth-child(3) 
+        {
+            background-image: url('https://5.imimg.com/data5/SELLER/Default/2023/11/361354545/PT/ZA/NP/98797659/eco-friendly-paper-gift-box.jpeg');
+        }
+        @keyframes slide 
+        {
+            0%, 33% { transform: translateX(0); }
+            34%, 66% { transform: translateX(-100%); }
+            67%, 100% { transform: translateX(-200%); }
+        }
+        .canvas-container 
+        {
+            text-align: center;
+            margin: 50px auto;
+        }
+        canvas 
+        {
+            border: 2px solid #00893a;
+            background-color: #f0f0f0;
+            cursor: crosshair;
+        }
+        .clear-btn 
+        {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #00893a;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .clear-btn:hover 
+        {
+            background-color: #005920;
+        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const porterLocations = [
+                { latitude: 28.7041, longitude: 77.1025, name: "New Delhi, India" },
+                { latitude: 19.0760, longitude: 72.8777, name: "Mumbai, India" },
+                { latitude: 13.0827, longitude: 80.2707, name: "Chennai, India" },
+                { latitude: 12.9716, longitude: 77.5946, name: "Bangalore, India" },
+                { latitude: 22.5726, longitude: 88.3639, name: "Kolkata, India" },
+            ];
+            document.getElementById("getLocation").addEventListener("click", function () {
+                const randomLocation = porterLocations[Math.floor(Math.random() * porterLocations.length)];
+                document.getElementById("locationOutput").innerHTML = 
+                    `SDE Location: ${randomLocation.name}<br>` +
+                    `Latitude: ${randomLocation.latitude}<br>` +
+                    `Longitude: ${randomLocation.longitude}`;
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const canvas = document.getElementById('drawingCanvas');
+            const ctx = canvas.getContext('2d');
+            let drawing = false;
+
+            canvas.addEventListener('mousedown', (e) => {
+                drawing = true;
+                ctx.beginPath();
+                ctx.moveTo(e.offsetX, e.offsetY);
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                if (drawing) {
+                    ctx.lineTo(e.offsetX, e.offsetY);
+                    ctx.stroke();
+                }
+            });
+
+            canvas.addEventListener('mouseup', () => drawing = false);
+            canvas.addEventListener('mouseout', () => drawing = false);
+
+            document.getElementById('clearCanvas').addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            });
+        });
+    </script>
 </head>
 <body>
     <nav class="first">
@@ -172,9 +274,14 @@
             </div>
    
     </nav><br>
-    <div class="fifth">
-        <video autoplay src="invideo-ai-720 Eco-Friendly Delivery_ A Green Journey 2024-11-27.mp4" controls>   </video>
-    </div><br><br><br><br>
+    <div class="carousel">
+        <div class="carousel-track">
+            <div class="carousel-item"></div>
+            <div class="carousel-item"></div>
+            <div class="carousel-item"></div>
+        </div>
+    </div>
+   <br><br><br><br>
     <div class="sixth">
     <p>Porter started off as a platform to address inefficiencies in the last mile logistics sector and transform the way goods are transported around cities, enabling lakhs of businesses move anything on-demand.We’ve grown manyfold since then, positively impacting the productivity of businesses, creating tremendous value for our partner-drivers and delivering happiness to a growing list of 19 cities.
 
@@ -186,6 +293,12 @@
 
     We’ve also taken up a lot of community development initiatives like higher education grants and scholarships for the children of our partners, dedicated health care assistance and vehicle leasing assistance.
     </p>
+    </div>
+    <div class="canvas-container">
+        <h2 style="color: white;">Draw on the Canvas</h2>
+        <canvas id="drawingCanvas" width="600" height="400"></canvas>
+        <br>
+        <button id="clearCanvas" class="clear-btn">Clear Canvas</button>
     </div>
     <div class="footer">
         <div class="eight"><br><br><br>
@@ -207,5 +320,7 @@
 Help us build the smartest transport logistics platform in the world.
         </div><br><br>
             <button class="nine">SEE OPEN OPTIONS</button><br><br><br><br><br>
+            <button id="getLocation" class="nine">Get My Location</button>
+            <div id="locationOutput" style="color: white; text-align: center; margin-top: 20px;"></div><br><br>
 </body>
 </html>
